@@ -3,7 +3,7 @@ HOST: http://metrics.brightcove.com
 
 # Brightcove Data Collection API
 
-The Data Collection API allows you to add events to your Video Cloud Analytics data in situations where Brightcove cannot track the events directly. Please contact your account manager if you are interested in using this API.
+The Data Collection API allows you to add events to your Video Cloud Analytics data in situations where Brightcove cannot track the events directly. Please contact your account manager if you are interested in using this API. See [Video Cloud Analytics Event Tracking](http://docs.brightcove.com/en/video-cloud/analytics-api/video-view-tracking.html#video_engagement-events) for more information.
 
 ## Base URL
 
@@ -41,7 +41,7 @@ The base URL for the Data Collection API is:
     + region (optional, string, `US-WA`) ... ISO-3166 (alpha 2) region code (override in case the system can not detect geographic information from the IP address)
     + region_name (optional, string, `Washington`) ... Human readable region name (override in case the system can not detect geographic information from the IP address)
     + city (optional, string, `Seattle`) ... City name
-    + dma (optional, number, `511`) ... numeric (DMA)[https://support.google.com/richmedia/answer/2745487?hl=en] code
+    + dma (optional, number, `511`) ... numeric [DMA](https://support.google.com/richmedia/answer/2745487?hl=en) code
     
 ### Track an event [GET]
 + Response 200 (application/json)
