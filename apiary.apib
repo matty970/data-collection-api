@@ -7,10 +7,18 @@ The Data Collection API allows you to add events to your Video Cloud Analytics d
 # Group Event Tracker
 Notes related resources of the **Notes API**
 
-## Notes Collection [/tracker?{account}]
+## Event tracking [/tracker{?account}{&domain}{&event}{&player}{&player_name}{&video}{video_name}{&time}{&video_duration}{&range}{&video_seconds_viewed}{&desination}{&source}{&device_type}{&device_os}{&country}{&country_name}{&region}{&region_name}{&city}{&dma}]
 
 + Parameters
-    + account (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+    + account (required, number, `1234567`) ... Numeric Video Cloud account ID
+    + domain (required, string, `videocloud`) ... String always equal to `videocloud`
+    + event (required, string, `video_view`) ... String the analytics event tracked
+        + values
+            + `player_load`
+            + `video_impression`
+            + `video_view`
+            + `video_engagement`
+    + player (optional, string, `1234567`) ... 
     
 ### Track an event [GET]
 + Response 200 (application/json)
