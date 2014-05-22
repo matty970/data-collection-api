@@ -1,0 +1,43 @@
+FORMAT: 1A
+HOST: http://metrics.brightcove.com
+
+# Brightcove Data Collection API
+The Data Collection API allows you to add events to your Video Cloud Analytics data in situations where Brightcove cannot track the events directly. Please contact your account manager if you are interested in using this API.
+
+# Group Event Tracker
+Notes related resources of the **Notes API**
+
+## Notes Collection [/tracker]
+### Track an event [GET]
++ Response 200 (application/json)
+
+        (returns a 1x1 transparent gif image)
+
+### Create a Note [POST]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+## Note [/notes/{id}]
+A single Note object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+
+### Retrieve a Note [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "id": 2, "title": "Pick-up posters from post-office" }
+
+### Remove a Note [DELETE]
++ Response 204
