@@ -13,52 +13,32 @@ The base URL for the Data Collection API is:
 
 # Group Event Tracker
 
-## Event tracking [/tracker{?account}{&domain}{&event}{&player}{&player_name}{&video}{video_name}{&time}{&video_duration}{&range}{&video_seconds_viewed}{&desination}{&source}{&device_type}{&device_os}{&country}{&country_name}{&region}{&region_name}{&city}{&dma}]
+## Event tracking [/tracker{?account}{&domain}{&event}{&player}{&player_name}{&video}{video_name}{&time}{&video_duration}{&range}{&video_seconds_viewed}{&destination}{&source}{&device_type}{&device_os}{&country}{&country_name}{&region}{&region_name}{&city}{&dma}]
 
 + Parameters
     + account (required, number, `1234567`) ... Numeric Video Cloud account ID
-    + domain (required, string, `videocloud`) ... String always equal to `videocloud`
-    + event (required, string, `video_view`) ... String the analytics event tracked
+    + domain (required, string, `videocloud`) ... Slways equal to `videocloud`
+    + event (required, string, `video_view`) ... The analytics event tracked
         + values
             + `player_load`
             + `video_impression`
             + `video_view`
             + `video_engagement`
-    + player (optional, string, `1234567`) ... String unique ID for the player
-    + player_name (optional, string, `Large VideoJS Player`) ... String name for the player
-    + video (optional, string, `1234567`) ... String the Video Cloud ID of the video
-    + video_name (optional, string, `My Short Video`) ... String the name of the video
+    + player (optional, string, `1234567`) ... Unique ID for the player
+    + player_name (optional, string, `Large VideoJS Player`) ... Name for the player
+    + video (optional, string, `1234567`) ... The Video Cloud ID of the video
+    + video_name (optional, string, `My Short Video`) ... The name of the video
+    + time (optional, number, `1400774757123`) ... The timestamp for the event (epoch time in ms)
+    + video_duration (optional, number, `360.275`) ... The duration of the video in seconds
+    + range (optional, string, `20..30`) ... The range of the video video viewed for `video_engagement` events in the format `StartSecond..EndSecond`
+    + video_seconds_viewed (optional, number, `10.25`) ... A count of watched seconds since the last update for `video_engagement` events
+    + destination (optional, string, `mysite.com/videos/latest-videos.html`) ... The URI that originated the event
+    + source (optional, string, `mysite.com/index.html`) ... The URI that sent the end-user to the `destination` URI
+    + device_type (optional, string, `mobile`) ... Override to specify the type of the device that originated the event in cases where the User-Agent is unreliable; ignored unless both `device_os` and `device_type` are included. **Not typically included**
+    + device_os (optional, string, `ios`) ... Override to specify the OS of the device that originated the event in cases where the User-Agent is unreliable; ignored unless both `device_os` and `device_type` are included. **Not typically included**
     
 ### Track an event [GET]
 + Response 200 (application/json)
 
         (returns a 1x1 transparent gif image)
 
-### Create a Note [POST]
-+ Request (application/json)
-
-        { "title": "Buy cheese and bread for breakfast." }
-
-+ Response 201 (application/json)
-
-        { "id": 3, "title": "Buy cheese and bread for breakfast." }
-
-## Note [/notes/{id}]
-A single Note object with all its details
-
-+ Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
-
-### Retrieve a Note [GET]
-+ Response 200 (application/json)
-
-    + Header
-
-            X-My-Header: The Value
-
-    + Body
-
-            { "id": 2, "title": "Pick-up posters from post-office" }
-
-### Remove a Note [DELETE]
-+ Response 204
