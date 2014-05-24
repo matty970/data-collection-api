@@ -32,9 +32,16 @@ The base URL for the Data Collection API is:
     + video_duration (optional, number, `360.275`) ... The duration of the video in seconds
     + range (optional, string, `20..30`) ... The range of the video video viewed for `video_engagement` events in the format `StartSecond..EndSecond`
     + video_seconds_viewed (optional, number, `10.25`) ... A count of watched seconds since the last update for `video_engagement` events
-    + destination (optional, string, `mysite.com/videos/latest-videos.html`) ... The URI that originated the event
-    + source (optional, string, `mysite.com/index.html`) ... The URI that sent the end-user to the `destination` URI
-    + device_type (optional, string, `mobile`) ... Override to specify the type of the device that originated the event in cases where the User-Agent is unreliable; ignored unless both `device_os` and `device_type` are included. **Not typically included**
+    + destination (optional, string, `http://mysite.com/videos/latest-videos.html`) ... The URI that originated the event
+    + source (optional, string, `http://mysite.com/index.html`) ... The URI that sent the end-user to the `destination` URI
+    + device_type (optional, string, `mobile`) ... Override to specify the type of the device that originated the event in cases where the User-Agent is unreliable; ignored unless both `device_os` and `device_type` are included or if the value submitted does not match the list of values here. **Not typically included**
+        + values
+            + direct
+            + mobile
+            + tablet
+            + tv
+            + desktop
+            + other
     + device_os (optional, string, `ios`) ... Override to specify the OS of the device that originated the event in cases where the User-Agent is unreliable; ignored unless both `device_os` and `device_type` are included. **Not typically included**
     + country (optional, string, `US`) ... ISO-3166 (alpha 2) country code (override in case the system can not detect geographic information from the IP address)
     + country_name (optional, string, `United States`) ... Human readable country name (override in case the system can not detect geographic information from the IP address)
